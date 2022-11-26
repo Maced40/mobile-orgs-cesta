@@ -1,2 +1,2 @@
 O expo start não funciona de início.
-Execute o Windows Power Shell como administrador, entre na pasta do projeto e, aí sim, execute expo start.
+Execute o Windows Power Shell como administrador, entre na pasta do projeto e, aí sim, execute expo start
