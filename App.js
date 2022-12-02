@@ -1,25 +1,32 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, View } from 'react-native';
-import { useFonts,Montserrat_400Regular, Montserrat_700Bold } from "@expo-google-fonts/montserrat"
-import AppLoading from 'expo-app-loading';
+import { View, Image, StyleSheet, FlatList } from 'react-native';
 
-import Cesta from './src/telas/Cesta';
-import mock from './src/mocks/cesta';
+import Texto from '../../../componentes/Texto';
 
-export default function App() {
-  const [fonteCarregada] = useFonts({
-    "MontserratRegular": Montserrat_400Regular,
-    "MontserratBold": Montserrat_700Bold,
-  });
-
-  if (!fonteCarregada) {
-    return <AppLoading />
-  }
-
-  return (
-    <SafeAreaView>
-      <StatusBar />
-      <Cesta {...mock} />
-    </SafeAreaView>
-  );
+export default function Item({ item: { nome, imagem } }) {
+  return <View style={estilos.item}>
+    <Image source={imagem} style={estilos.imagem}/>
+    <Texto style={estilos.nome}>{ nome }</Texto>
+  </View>
 }
+
+const estilos = StyleSheet.create({
+  item: {
+    flexDirection: "row",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ECECEC",
+    paddingVertical: 16,
+    marginHorizontal: 16,
+    alignItems: "center",
+  },
+  imagem: {
+    width: 46,
+    height: 46,
+  },
+  nome: {
+    fontSize: 16,
+    lineHeight: 26,
+    marginLeft: 11,
+    color: "#464646"
+  },
+});
